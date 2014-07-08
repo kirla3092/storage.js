@@ -19,8 +19,11 @@ if (!Date.now) {
         return new Date().getTime();
     };
 }
-var Storage = function() {
-    var $localStorageName = "storage";
+var Storage = function(name) {
+	if(typeof name === typeof undefined)
+		var $localStorageName = "storage";
+	else
+		var $localStorageName = name;
     var $storage = null;
     function getValue(key) {
         if ($storage === null)
